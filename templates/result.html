@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result for {{ user_name }}</h1>
+        <p><strong>Roll Number:</strong> {{ roll_number }}</p>
+        {% if placement %}
+            <p class="success"><strong>Prediction:</strong> You will likely be placed!</p>
+            <p><strong>Estimated Package:</strong> ₹{{ estimated_package }}</p>
+        {% else %}
+            <p class="error"><strong>Prediction:</strong> You are less likely to be placed.</p>
+        {% endif %}
+        <h2>Skill Recommendations</h2>
+        
+        <!-- Technical Skills Recommendations -->
+        <h3>Missing Critical Technical Skills:</h3>
+        {% if missing_skills %}
+            <ul>
+                {% for skill in missing_skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No missing critical technical skills.</p>
+        {% endif %}
+
+        <h3>Technical Skills That Need Improvement:</h3>
+        {% if low_scoring_skills %}
+            <ul>
+                {% for skill in low_scoring_skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No technical skills need improvement.</p>
+        {% endif %}
+
+        <!-- Soft Skills Recommendations -->
+        <h3>Missing Soft Skills:</h3>
+        {% if missing_soft_skills %}
+            <ul>
+                {% for skill in missing_soft_skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No missing soft skills.</p>
+        {% endif %}
+
+        <!-- Projects Section -->
+        <h2>Projects</h2>
+        {% if projects %}
+            <ul>
+                {% for project in projects %}
+                    <li>
+                        <strong>{{ project.title }}</strong>
+                        <p><strong>Skills Used:</strong> {{ project.skills | join(', ') }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No projects to display.</p>
+        {% endif %}
+
+        <a href="{{ url_for('index') }}">Back to Form</a>
+    </div>
+</body>
+</html>

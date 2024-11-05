@@ -1,0 +1,31 @@
+{
+    "technical_skills": {
+        "python": 9,
+        "java": 7,
+        "javascript": 6,
+        "react": 7,
+        "tensorflow": 8,
+        "machine learning": 7,
+        "cloud computing": 6,
+        "c++": 6,
+        "sql": 7,
+        "django": 7,
+        "flask": 6
+    },
+    "soft_skills": {
+        "speaking": 7,
+        "writing": 8,
+        "negotiation": 6,
+        "leadership": 7,
+        "teamwork": 8,
+        "time management": 7,
+        "adaptability": 7,
+        "problem solving": 8,
+        "creativity": 6
+    },
+    "domain_critical_skills": {
+        "dev": ["java", "javascript", "react", "c++", "sql", "django", "flask"],
+        "ml": ["python", "tensorflow", "machine learning", "sql"],
+        "cloud": ["cloud computing", "javascript", "python", "sql"]
+    }
+}
